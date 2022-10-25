@@ -1,5 +1,5 @@
 # GuessYourSimpson
-Expert system of The Simpsons Characters. Node.js, Svelte, SQL
+Expert system of The Simpsons Characters without Expert System libraries (Like experta). Node.js, Svelte, SQL
 
 BackEnd: Api REST in node JS with sequelize.
 
