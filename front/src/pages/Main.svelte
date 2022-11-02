@@ -105,7 +105,10 @@
     }
 
     var similarResults = []
-    const findSimilarCharacters = () =>{
+    var percentsArray = []
+    var numRest = 0
+    var finallyPercent
+    const findSimilarCharacters = async() =>{
         var counterFacts = 0
         var checkingCharacterSimilarArray = []
         var similaryPercent = 0
@@ -124,6 +127,12 @@
             similaryPercent = (100 * counterFacts)/answers.length
             if(similaryPercent > 60){
                 similarResults.push(item)
+
+                if(similaryPercent > 90){
+                    similaryPercent - (Math.random()*(0.6 - 2.3)+0.6)
+                }
+                numRest = numRest + similaryPercent/1000
+                percentsArray.push((similaryPercent/1000).toFixed(4))
             }
 
             similaryPercent = 0
@@ -135,6 +144,9 @@
             var index = similarResults.indexOf(guessedCharacter);
             similarResults.splice(index, 1);
         }
+
+        console.log(numRest + "NUMREST")
+        finallyPercent = 100 - numRest
     }
     
     var guessedCharacter = ""
@@ -359,16 +371,20 @@
                         style="width:200px; height:200px"/> 
                     </button>
                 <h3 class="resultText">{guessedCharacter}</h3>
+                <span>{finallyPercent}</span>
             {/if}
             <h2> Aqui algunas opciones</h2>
             <div class="otherOptions">
-                {#each similarResults as similar}
-                    <button style="margin-right:5px" on:click={() => selection = similar}>
-                        <img 
-                        src="public/{similar}.png"
-                        alt="similarResult"
-                        style="width:50px; height:50px;"/> 
-                    </button>
+                {#each similarResults as similar,i}
+                    <div class="similary">
+                        <button style="margin-right:5px" on:click={() => selection = similar}>
+                            <img 
+                            src="public/{similar}.png"
+                            alt="similarResult"
+                            style="width:50px; height:50px;"/> 
+                        </button>
+                        <span>{percentsArray[i]} %</span>
+                    </div>
                 {/each}
             </div>
             <h3 style="color:grey">Selecciona el personaje que pensaste</h3>
@@ -378,6 +394,10 @@
 </div>
 
 <style>
+    .similary{
+        display: flex;
+        flex-direction: column;
+    }
 
     .otherOptions{
         display: flex;
