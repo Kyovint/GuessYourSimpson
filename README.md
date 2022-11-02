@@ -16,7 +16,5 @@ Landing Page
 Game Page
 ![image](https://user-images.githubusercontent.com/48103810/197624592-aef59d09-8d1a-44fd-b244-1612a4acd420.png)
 Result Page
-![image](https://user-images.githubusercontent.com/48103810/197624679-4915178b-66b7-45e1-894d-ba1213c1b788.png)
-
-
+![image](https://user-images.githubusercontent.com/48103810/199594607-c1fc9eac-b3f4-4047-8b8c-fb8be0edf02f.png)
 
